@@ -5,21 +5,21 @@ class Solution {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j] == '1') {
                     count++;
-                    clearRestOfLand(grid, i, j);
+                    Land(grid, i, j);
                 }
             }
         }
         return count; 
     }
-        public void clearRestOfLand(char[][] grid, int i, int j) {
+        public void Land(char[][] grid, int i, int j) {
         if (i < 0 || j < 0 || i >= grid.length || j >= grid[i].length || grid[i][j] == '0') {
             return;
         }    
         grid[i][j] = '0';
-        clearRestOfLand(grid, i+1, j);
-        clearRestOfLand(grid, i-1, j);
-        clearRestOfLand(grid, i, j+1);
-        clearRestOfLand(grid, i, j-1);
+        Land(grid, i+1, j);
+        Land(grid, i-1, j);
+        Land(grid, i, j+1);
+        Land(grid, i, j-1);
         return;
     }
 }
